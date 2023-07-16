@@ -2,7 +2,7 @@ import { IBook, ICartItem } from "@/app/interfaces";
 import RatingStars from "./ratingStars";
 import { formatRatingsCount, formatAuthorsNames } from "./helpers";
 import { ImageWrapper, StyledCartCard, BuyButton, StyledCard, BookDataContainer, Author, Title, RatingBar, ReviewCount, Description, Price, ButtonContainer } from "./style";
-import { useAppSelector, useAppDispatch, selectCartIds } from "@/app/redux/hooks";
+import { useAppSelector, useAppDispatch, selectCartIds, selectIsAuthenticated } from "@/app/redux/hooks";
 import { itemAdded, itemRemoved } from "../../redux/features/cart/cartSlice";
 import Image from "next/image";
 import coverPlaceholder from "public/coverPlaceholder.png"
@@ -23,6 +23,7 @@ const Card: React.FC<CardProps> = ({ book, variant = "main" }) => {
   const cartIds = useAppSelector(selectCartIds);
   const isItemInCart = cartIds.includes(cartItem.id);
   const dispatch = useAppDispatch();
+  const isAuthenticated = useAppSelector(selectIsAuthenticated);
 
   const handleButtonClick = () => {
     isItemInCart ? dispatch(itemRemoved(cartItem.id)) : dispatch(itemAdded(cartItem));
@@ -55,7 +56,12 @@ const Card: React.FC<CardProps> = ({ book, variant = "main" }) => {
             <Description>{description}</Description>
             {amount && currencyCode && <Price>{currencyCode} {amount}</Price>}
             <ButtonContainer>
-              <BuyButton $isBookInCart={isItemInCart} onClick={handleButtonClick}>
+              <BuyButton 
+              $isBookInCart={isItemInCart} 
+              onClick={handleButtonClick}
+              disabled={!isAuthenticated}
+              title={isAuthenticated ? '' : "please log in to add books to cart"}
+              >
                 {isItemInCart ? "in cart" : "buy now"}
               </BuyButton>
             </ButtonContainer>
