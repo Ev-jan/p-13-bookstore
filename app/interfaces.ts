@@ -1,3 +1,4 @@
+import { StaticImageData } from "next/image";
 
 export interface INavItem {
     label: string;
@@ -6,7 +7,7 @@ export interface INavItem {
 
 export interface ISlideImage {
   id: number;
-  url: string;
+  url: StaticImageData;
   alt?: string;
 }
 
