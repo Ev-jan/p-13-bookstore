@@ -6,6 +6,7 @@ import UserCard from "../components/userCard/userCard";
 import { Main, ProfileHeading, LeftSection, RightSection } from "./style"
 import { selectUserBio, useAppSelector } from "../redux/hooks";
 import { useState } from "react";
+import profilePic from "../../public/profilePic.png"
 
 export default function Profile() {
 
@@ -20,9 +21,9 @@ export default function Profile() {
             <LeftSection>
                 <ProfileHeading>PROFILE</ProfileHeading>
                 {!isEditModeOn ? (
-                    <UserCard userImage={<Image src={"/../public/profile-pic.png"} alt={"profile picture"} width={235} height={235} />} toggleForm={handleClick}/>
+                    <UserCard userImage={<Image src={profilePic} alt={"profile picture"} width={235} height={235} />} toggleForm={handleClick}/>
                 ) : (
-                    <ProfileEditForm userImage={<Image src={"/../public/profile-pic.png"} alt={"profile picture"} width={235} height={235} />} toggleForm={handleClick}/>
+                    <ProfileEditForm userImage={<Image src={profilePic} alt={"profile picture"} width={235} height={235} />} toggleForm={handleClick}/>
                 )}
             </LeftSection>
             <RightSection>

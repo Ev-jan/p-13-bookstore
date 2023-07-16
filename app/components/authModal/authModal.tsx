@@ -141,7 +141,8 @@ export default function AuthModal() {
             $default={!isPasswordValid && !isEmailValid}
 
           />
-          <PasswordToggleBtn
+          <PasswordToggleBtn 
+            type="button"
             $hide={showPassword}
             onClick={toggleShowPassword}
             disabled={password.trim() === ""}
