@@ -4,7 +4,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 The Bookstore is a web application built with Next.js, React, TypeScript, styled-components, Redux Toolkit, and Redux Persist. It allows users to browse books in various categories, add them to the cart, and edit their profile.
 
-You can visit the live version of the app at [https://bookstore-nextjs-ecru.vercel.app/](https://bookstore-nextjs-ecru.vercel.app/).
+You can visit the live version of the app at [https://bookstore-nextjs-ecru.vercel.app/]([https://bookstore-nextjs-ecru.vercel.app/](https://p-13-bookstore-zeuq.vercel.app/)).
 
 ## Features
 
