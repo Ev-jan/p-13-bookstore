@@ -2,7 +2,7 @@ import { usePathname } from 'next/navigation'
 import { StyledLInk, Nav } from './style';
 import { INavItem } from '@/app/interfaces';
 import IconBar from '../headerIconBar/iconBar';
-import { User, Cart } from "./../../../public/icons"
+import { User, Cart } from "@/public/icons"
 import AuthModal from "../authModal/authModal";
 
 type HeaderNavProps = {
@@ -24,12 +24,12 @@ const HeaderNav: React.FC<HeaderNavProps> = ({ navItems }) => {
             )}
         </ul>
       </Nav>
-      <IconBar 
-            userIcon={<User />}
-            cartIcon={<Cart/>} 
-            authModal={<AuthModal />}
-            pathName={pathname}
-            />
+      <IconBar
+        userIcon={<User />}
+        cartIcon={<Cart />}
+        authModal={<AuthModal />}
+        pathName={pathname}
+      />
     </>
   )
 }

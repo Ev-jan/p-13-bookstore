@@ -5,7 +5,6 @@ import { ImageWrapper, StyledCartCard, BuyButton, StyledCard, BookDataContainer,
 import { useAppSelector, useAppDispatch, selectCartIds, selectIsAuthenticated } from "@/app/redux/hooks";
 import { itemAdded, itemRemoved } from "../../redux/features/cart/cartSlice";
 import Image from "next/image";
-import coverPlaceholder from "public/coverPlaceholder.png"
 
 type CardProps = {
   book: IBook;
@@ -34,7 +33,7 @@ const Card: React.FC<CardProps> = ({ book, variant = "main" }) => {
       {variant === "main" && (
         <StyledCard>
           <ImageWrapper>
-            <Image src={coverMedium || coverPlaceholder}
+            <Image src={coverMedium || "/coverPlaceholder.png"}
               alt="front cover"
               sizes="100vw"
               fill
@@ -42,7 +41,7 @@ const Card: React.FC<CardProps> = ({ book, variant = "main" }) => {
                 objectFit: "cover",
                 boxShadow: "0px 24px 36px 0px #35315447",
 
-              }}/>
+              }} />
           </ImageWrapper>
           <BookDataContainer>
             <Author>{formatAuthorsNames(authors)}</Author>
@@ -56,11 +55,11 @@ const Card: React.FC<CardProps> = ({ book, variant = "main" }) => {
             <Description>{description}</Description>
             {amount && currencyCode && <Price>{currencyCode} {amount}</Price>}
             <ButtonContainer>
-              <BuyButton 
-              $isBookInCart={isItemInCart} 
-              onClick={handleButtonClick}
-              disabled={!isAuthenticated}
-              title={isAuthenticated ? '' : "please log in to add books to cart"}
+              <BuyButton
+                $isBookInCart={isItemInCart}
+                onClick={handleButtonClick}
+                disabled={!isAuthenticated}
+                title={isAuthenticated ? '' : "please log in to add books to cart"}
               >
                 {isItemInCart ? "in cart" : "buy now"}
               </BuyButton>

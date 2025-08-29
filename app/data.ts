@@ -1,7 +1,4 @@
-import { INavItem, ISlideImage } from "./interfaces";
-import banner1 from "./../public/banner1.png"
-import banner2 from "./../public/banner2.png"
-import banner3 from "./../public/banner3.png"
+import { INavItem, ISlideImage } from "./interfaces"
 
 export const navItems: INavItem[] = [
     {
@@ -24,16 +21,16 @@ export const navItems: INavItem[] = [
 
 export const slides: ISlideImage[] = [
     { id: 1, 
-      url: banner1, 
+      url: "/banner1.png", 
       alt: "black friday sale" },
     {
       id: 2, 
-      url: banner2,
+      url: "/banner2.png",
       alt: "ten top books for entrepreneures",
     },
     {
       id: 3, 
-      url: banner3,
+      url: "/banner3.png",
       alt: "check our cozy books selection",
     },
   ];

@@ -7,7 +7,7 @@ export interface INavItem {
 
 export interface ISlideImage {
   id: number;
-  url: StaticImageData;
+  url: string;
   alt?: string;
 }
 
